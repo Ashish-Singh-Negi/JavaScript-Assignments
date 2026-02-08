@@ -9,7 +9,13 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-    return [];
+
+
+  transactions.map((transaction, i) => {
+
+  })
+
+  return [];
 }
 
 module.exports = calculateTotalSpentByCategory;

@@ -17,6 +17,67 @@
   - `npm run test-calculator`
 */
 
-class Calculator { }
+class Calculator {
+  result = 0;
+
+  add(num) {
+    this.result += num
+  }
+
+  subtract(num) {
+    this.result -= num
+  }
+
+  mutiply(num) {
+    this.result *= num
+  }
+
+  divide(num) {
+    this.result /= num
+  }
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result
+  }
+  extractNumberAndSigns(expr) {
+    const numbers = [];
+    const signs = [];
+
+    let currentNum = "";
+
+    for (let i = 0; i < expr.length; i++) {
+      const ch = expr[i];
+
+      if ("+-*/".includes(ch)) {
+        numbers.push(Number(currentNum));
+        signs.push(ch);
+        currentNum = "";
+      } else {
+        currentNum += ch;
+      }
+    }
+
+    // push last number
+    numbers.push(Number(currentNum));
+
+    return { numbers, signs };
+  }
+
+
+  calculate(formula) {
+    const expression = formula.split("").filter(s => s != " " && s != "(" && s != ")")
+
+
+    const { numbers, signs } = this.extractNumberAndSigns(expression)
+
+
+
+  }
+
+}
 
 module.exports = Calculator;
