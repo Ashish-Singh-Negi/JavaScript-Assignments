@@ -6,3 +6,18 @@
 //  - HH:MM::SS (Eg. 13:45:23)
 
 //  - HH:MM::SS AM/PM (Eg 01:45:23 PM)
+
+function clock() {
+    const hours = new Date().getHours()
+    const minutes = new Date().getMinutes()
+    const seconds = new Date().getSeconds()
+
+    const time24 = `${hours}:${minutes}::${seconds}`
+
+    const hour24ToHour12 = hours > 12 ? hours - 12 : hours
+
+    console.log(`${hour24ToHour12}:${minutes}::${seconds} ${hours > 12 ? "PM" : "AM"}`)
+}
+
+
+setInterval(clock, 1000)
